@@ -1,6 +1,19 @@
 /* The project spec says we need a function or procedure for all of the questions, 
 a cursor for at least 1 of the questions, a trigger for at least 1 question, and a package
-for all of the functions and procedures. */
+for all of the functions and procedures. 
+You will submit:
+- A link to your GitHub repository.
+- In your repository, there should be
+a. A script for importing data into an empty database.
+b. The project description from Milestone 1 and the question list from Milestone 2.
+c. The solutions you have implemented, labeled by the corresponding questions.
+- Describe your teamwork: how did you come up with the 10 questions, list the
+contribution of each team member. */
+
+--Load The Data
+sqlldr username/password@your_database control=Channel.ctl log=Channel.log
+sqlldr username/password@your_database control=Video.ctl log=Video.log
+sqlldr username/password@your_database control=Viewer.ctl log=Viewer.log
 
 --Creates the Tables:
 CREATE TABLE Video (
@@ -28,6 +41,26 @@ CREATE TABLE Viewer (
   Num_Liked_Disliked_Videos NUMBER,
   Video_Name VARCHAR2(255) REFERENCES Video(Video_Name)
 );
+/
+
+INSERT INTO Channel (Channel_Name, Num_Videos, Year_Created, Num_Views)
+VALUES ('TechChannel', 50, 2010, 1000000);
+
+INSERT INTO Channel (Channel_Name, Num_Videos, Year_Created, Num_Views)
+VALUES ('CookingChannel', 30, 2015, 800000);
+
+INSERT INTO Video (Video_Name, Length, Likes_Dislikes, Views, Channel_Name, Date_Posted, View_Count, Date_Watched)
+VALUES ('Introduction_to_SQL', 10, 500, 50000, 'TechChannel', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 2000, TO_DATE('2023-01-05', 'YYYY-MM-DD'));
+
+INSERT INTO Video (Video_Name, Length, Likes_Dislikes, Views, Channel_Name, Date_Posted, View_Count, Date_Watched)
+VALUES ('Italian_Pasta_Recipe', 15, 200, 30000, 'CookingChannel', TO_DATE('2023-02-01', 'YYYY-MM-DD'), 1500, TO_DATE('2023-02-10', 'YYYY-MM-DD'));
+
+INSERT INTO Viewer (User_Name, Date_Created, Num_Videos_Viewed, Num_Liked_Disliked_Videos, Video_Name)
+VALUES ('JohnDoe', TO_DATE('2022-01-01', 'YYYY-MM-DD'), 20, 10, 'Introduction_to_SQL');
+
+INSERT INTO Viewer (User_Name, Date_Created, Num_Videos_Viewed, Num_Liked_Disliked_Videos, Video_Name)
+VALUES ('AliceSmith', TO_DATE('2022-02-01', 'YYYY-MM-DD'), 15, 5, 'Italian_Pasta_Recipe');
+
 /
 
 --Question Package
@@ -244,9 +277,6 @@ CREATE OR REPLACE PACKAGE BODY video_package AS
       HAVING
         COUNT(*) >= 3;
 
-    -- Display the results or do any necessary processing
-    -- ...
-
     CLOSE rewatched_videos_cursor;
   END find_rewatched_videos;
 
@@ -265,9 +295,6 @@ CREATE OR REPLACE PACKAGE BODY video_package AS
         AND v.date_watched IS NOT NULL
       GROUP BY
         v.user_name;
-
-    -- Display the results or do any necessary processing
-    -- ...
 
     CLOSE average_watch_time_cursor;
   END calculate_average_watch_time;
