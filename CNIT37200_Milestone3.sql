@@ -6,7 +6,11 @@ a. A script for importing data into an empty database.
 b. The project description from Milestone 1 and the question list from Milestone 2.
 c. The solutions you have implemented, labeled by the corresponding questions.
 - Describe your teamwork: how did you come up with the 10 questions, list the
-contribution of each team member. */
+contribution of each team member. 
+
+Teamwork:
+Split evently throughout the procedures and such.
+*/
 
 --Load The Data
 sqlldr username/password@your_database control=Channel.ctl log=Channel.log
