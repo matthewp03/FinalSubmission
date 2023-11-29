@@ -1,0 +1,74 @@
+Milestone 2: List the Questions
+
+Names: Matthew Poole & Dawson Spratley
+
+Option Chosen: Option A
+
+Submit 10 questions that your project will answer based on the data provided.
+ For each question, explain what knowledge it will use from this class, and why it is important/useful for whom.
+Please make sure the questions are of interest to somebody who would be using your application. 
+A good example: Which flavors of ice cream are most popular and during what time? This question can help the supply chain management team of an ice cream company to optimize future order plans and customize their ice cream supply for different customers.
+Try not to ask questions like list all the first names that start with the letter T.
+Questions should be meaningful and non-repetitive. Each of the answers should demonstrate something that you learned in the course. For example, do not submit questions that all require a count of something.
+Describe your teamwork: how did you come up with the 10 questions, list the contribution of each team member.
+From Milestone 1:
+
+Data 
+
+Watch History - We will derive insight regarding personal preferences, interests, and topics spent the most time on. 
+
+Time when videos were watched - Provides insight into usage patterns for each user. 
+
+
+Database Design
+
+We would initially need to clearly outline the purpose of our database and the specific insights that we wish to gain from utilizing the database. The primary purpose of our database would be to create a comprehensive analysis of users’ watching habits and interests and illustrate similarities and differences in the way users interact with the service. 
+
+We would then need to identify the data that we would need to populate our databases to best achieve our goal. For each of the tables, we would also need to define the columns in detail by specifying the data types that would be required. Currently, we have outlined several primary keys and foreign keys that would best adhere to the nature of our intended table, shown in the table outline below. 
+
+In order to test our database after its creation, we would need to populate the database utilizing a combination of our personal data, as well as public APIs that have been made available by the Youtube database. We would likely utilize batch processing if we proceed to use APIs. We would then allocate the MYSQL Database Management System to store the data acquired and conduct tests to ensure that the database is fully functional. 
+
+Finally, after we have documented the database architecture and its successful functionality, we would need to make sure that the data being used to populate the database have been obtained with the permission of the individual user, and in the case where we are utilizing APIs, go through the terms and conditions to make sure that our database is not breaching regulations regarding personal data. 
+
+
+
+
+
+
+Table Outline
+
+Table
+Attributes
+Relationship
+Video
+Video Name(PK), Length, Likes/Dislikes, Views, Channel Name(FK), Date of Video Posted, View Count, Date Watched
+Video Name (PK)
+Channel Name (FK)
+Channel
+Channel Name(PK), Number of Videos, Year Created, Number of Views 
+Channel Name (PK)
+Viewer
+User Name(PK), Date of Account Creation, Number of Videos Viewed, Number of Liked/Disliked Videos, Video Name(FK)
+User Name (PK)
+Video Name (FK)
+
+
+
+
+
+Questions for Milestone 2:
+
+Example: Which flavors of ice cream are most popular and during what time? This question can help the supply chain management team of an ice cream company to optimize future order plans and customize their ice cream supply for different customers.)
+List the channel name, Number of videos, and Average number of likes and dislikes. This is done to see what the distribution of likes/dislikes are across each channel with differing numbers of videos that we watch.
+Taking the information from the last question, count how many videos were watched out of each channel. This is to see if there is a correlation between the popularity of the channel and how many videos we watched.
+ Display the Date of account creation, number of videos viewed, and date watched (yyyy-mm-dd). This provides an idea of how many videos were watched at different times of year.
+ Building off of the last question, now condense the date down to each month to infer how many videos were watched on a monthly basis every year. This further allows us to filter how many videos were watched per month across many years.
+Create a function that calculates the number of days since the account was created from the date a given video was watched. This provides an idea of the age of the account vs what videos they watched.
+Display the channel name and number of views of the channel with the most amount of views. With this, we can figure out what is the most popular channel that one of us has ever watched. 
+Using the results from the last question, show who watched the most popular channel, when they watched it, and what videos they watched from the channel. This info can be used to see if there are any patterns in the channel’s popularity and how long the channel has been popular. 
+Create a procedure to find and display the total amount of videos that have been rewatched at least 2 times by each user (Total of at least 3 different views). This can show how many videos each of us choose to rewatch for a variety of reasons. 
+Create a procedure that calculates the average amount of content watched in minutes over a certain span of time. This will allow us to find out what our viewing patterns are and if our patterns overlap or correlate with national trends.  
+Create a function that can calculate the number of days after a video was posted that it was watched by the user. This will allow us to deduce an average of the number of days a user takes to watch a video after it was posted. 
+
+Teamwork:
+We came up with our questions on our own and asked the group for any suggestions when we finished. After getting the suggestions from the group, we revised our questions to try to clarify any misunderstandings. Dawson came up with questions 1-5/10, Matthew came up with questions 6-9.
