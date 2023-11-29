@@ -41,26 +41,6 @@ CREATE TABLE Viewer (
 );
 /
 
-INSERT INTO Channel (Channel_Name, Num_Videos, Year_Created, Num_Views)
-VALUES ('TechChannel', 50, 2010, 1000000);
-
-INSERT INTO Channel (Channel_Name, Num_Videos, Year_Created, Num_Views)
-VALUES ('CookingChannel', 30, 2015, 800000);
-
-INSERT INTO Video (Video_Name, Length, Likes_Dislikes, Views, Channel_Name, Date_Posted, View_Count, Date_Watched)
-VALUES ('Introduction_to_SQL', 10, 500, 50000, 'TechChannel', TO_DATE('2023-01-01', 'YYYY-MM-DD'), 2000, TO_DATE('2023-01-05', 'YYYY-MM-DD'));
-
-INSERT INTO Video (Video_Name, Length, Likes_Dislikes, Views, Channel_Name, Date_Posted, View_Count, Date_Watched)
-VALUES ('Italian_Pasta_Recipe', 15, 200, 30000, 'CookingChannel', TO_DATE('2023-02-01', 'YYYY-MM-DD'), 1500, TO_DATE('2023-02-10', 'YYYY-MM-DD'));
-
-INSERT INTO Viewer (User_Name, Date_Created, Num_Videos_Viewed, Num_Liked_Disliked_Videos, Video_Name)
-VALUES ('JohnDoe', TO_DATE('2022-01-01', 'YYYY-MM-DD'), 20, 10, 'Introduction_to_SQL');
-
-INSERT INTO Viewer (User_Name, Date_Created, Num_Videos_Viewed, Num_Liked_Disliked_Videos, Video_Name)
-VALUES ('AliceSmith', TO_DATE('2022-02-01', 'YYYY-MM-DD'), 15, 5, 'Italian_Pasta_Recipe');
-
-/
-
 --Question Package
 CREATE OR REPLACE PACKAGE video_package AS
   TYPE video_info IS RECORD (
