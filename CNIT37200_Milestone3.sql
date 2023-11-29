@@ -112,27 +112,28 @@ CREATE OR REPLACE PACKAGE video_package AS
     average_watch_time NUMBER
   );
 
-  FUNCTION get_channel_info RETURN SYS_REFCURSOR;
+  FUNCTION get_channel_info RETURN SYS_REFCURSOR; -- Question 1
 
-  FUNCTION count_videos_watched RETURN SYS_REFCURSOR;
+  FUNCTION count_videos_watched RETURN SYS_REFCURSOR; -- Question 2
 
-  FUNCTION get_viewer_info RETURN SYS_REFCURSOR;
+  FUNCTION get_viewer_info RETURN SYS_REFCURSOR; -- Question 3
 
-  FUNCTION get_viewer_monthly_info RETURN SYS_REFCURSOR;
+  FUNCTION get_viewer_monthly_info RETURN SYS_REFCURSOR; --Question 4
 
-  FUNCTION get_days_since_creation(video_name_in VARCHAR2) RETURN SYS_REFCURSOR;
+  FUNCTION get_days_since_creation(video_name_in VARCHAR2) RETURN SYS_REFCURSOR; --Question 5
 
-  FUNCTION get_most_popular_channel RETURN SYS_REFCURSOR;
+  FUNCTION get_most_popular_channel RETURN SYS_REFCURSOR; --Question 6
 
-  FUNCTION get_most_popular_channel_viewers RETURN SYS_REFCURSOR;
+  FUNCTION get_most_popular_channel_viewers RETURN SYS_REFCURSOR; --Question 7
 
-  PROCEDURE find_rewatched_videos;
+  PROCEDURE find_rewatched_videos; -- Question 8
 
-  PROCEDURE calculate_average_watch_time(start_date_in DATE, end_date_in DATE);
+  PROCEDURE calculate_average_watch_time(start_date_in DATE, end_date_in DATE); -- Question 9
 END video_package;
 /
 
 CREATE OR REPLACE PACKAGE BODY video_package AS
+  -- Question 1
   FUNCTION get_channel_info RETURN SYS_REFCURSOR IS
     channel_cursor SYS_REFCURSOR;
   BEGIN
@@ -150,6 +151,7 @@ CREATE OR REPLACE PACKAGE BODY video_package AS
     RETURN channel_cursor;
   END get_channel_info;
 
+-- Question 2
   FUNCTION count_videos_watched RETURN SYS_REFCURSOR IS
     watched_cursor SYS_REFCURSOR;
   BEGIN
@@ -168,6 +170,7 @@ CREATE OR REPLACE PACKAGE BODY video_package AS
     RETURN watched_cursor;
   END count_videos_watched;
 
+-- Question 3
   FUNCTION get_viewer_info RETURN SYS_REFCURSOR IS
     viewer_cursor SYS_REFCURSOR;
   BEGIN
@@ -186,6 +189,7 @@ CREATE OR REPLACE PACKAGE BODY video_package AS
     RETURN viewer_cursor;
   END get_viewer_info;
 
+-- Question 4
   FUNCTION get_viewer_monthly_info RETURN SYS_REFCURSOR IS
     monthly_cursor SYS_REFCURSOR;
   BEGIN
@@ -205,6 +209,7 @@ CREATE OR REPLACE PACKAGE BODY video_package AS
     RETURN monthly_cursor;
   END get_viewer_monthly_info;
 
+-- Question 5
   FUNCTION get_days_since_creation(video_name_in VARCHAR2) RETURN SYS_REFCURSOR IS
     days_since_creation_cursor SYS_REFCURSOR;
   BEGIN
@@ -223,6 +228,7 @@ CREATE OR REPLACE PACKAGE BODY video_package AS
     RETURN days_since_creation_cursor;
   END get_days_since_creation;
 
+-- Question 6
   FUNCTION get_most_popular_channel RETURN SYS_REFCURSOR IS
     popular_channel_cursor SYS_REFCURSOR;
   BEGIN
@@ -236,6 +242,7 @@ CREATE OR REPLACE PACKAGE BODY video_package AS
     RETURN popular_channel_cursor;
   END get_most_popular_channel;
 
+-- Question 7
   FUNCTION get_most_popular_channel_viewers RETURN SYS_REFCURSOR IS
     popular_channel_viewers_cursor SYS_REFCURSOR;
   BEGIN
@@ -260,6 +267,7 @@ CREATE OR REPLACE PACKAGE BODY video_package AS
     RETURN popular_channel_viewers_cursor;
   END get_most_popular_channel_viewers;
 
+--Question 8
   PROCEDURE find_rewatched_videos IS
     rewatched_videos_cursor SYS_REFCURSOR;
   BEGIN
@@ -280,6 +288,7 @@ CREATE OR REPLACE PACKAGE BODY video_package AS
     CLOSE rewatched_videos_cursor;
   END find_rewatched_videos;
 
+-- Question 9
   PROCEDURE calculate_average_watch_time(start_date_in DATE, end_date_in DATE) IS
     average_watch_time_cursor SYS_REFCURSOR;
   BEGIN
