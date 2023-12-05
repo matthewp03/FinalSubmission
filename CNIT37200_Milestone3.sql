@@ -8,6 +8,9 @@ c. The solutions you have implemented, labeled by the corresponding questions.
 - Describe your teamwork: how did you come up with the 10 questions, list the
 contribution of each team member. 
 
+Potential Datasets:
+https://www.kaggle.com/datasets/advaypatil/youtube-statistics
+
 Teamwork:
 Split evently throughout the procedures and such.
 */
