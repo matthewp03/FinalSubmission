@@ -292,5 +292,24 @@ CREATE OR REPLACE PACKAGE BODY video_package AS
 
     CLOSE average_watch_time_cursor;
   END calculate_average_watch_time;
+--Question 10
+FUNCTION get_days_after_posted(video_name_in VARCHAR2) RETURN SYS_REFCURSOR IS
+  days_after_posted_cursor SYS_REFCURSOR;
+BEGIN
+  OPEN days_after_posted_cursor FOR
+    SELECT
+      v.user_name,
+      v.video_name,
+      TRUNC(v.date_watched - vid.date_posted) AS days_after_posted
+    FROM
+      viewer v
+      JOIN video vid ON v.video_name = vid.video_name
+    WHERE
+      v.date_watched IS NOT NULL
+      AND v.video_name = video_name_in;
+
+  RETURN days_after_posted_cursor;
+END get_days_after_posted;
+
 
 END video_package;
